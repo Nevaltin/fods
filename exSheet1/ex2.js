@@ -31,9 +31,9 @@ const euclideanDistance = (a, b) => {
     }
     let sum = 0;
     for (let i = 0; i < a.length; i++) {
-        sum += (a[i] - b[i]) * (a[i] - b[i]);
+        sum += Math.pow(a[i] - b[i], 2);
     }
-    return sum * sum;
+    return Math.pow(sum, 2);
 };
 
 const manhattanDistance = (a, b) => {
@@ -80,10 +80,10 @@ const classify = (data, item, k, dFunc) => {
 const table = {};
 allItems.forEach(item => {
     table[item.toString()] = {
-        euclidean2: classify(data, item, 2, euclideanDistance),
-        euclidean3: classify(data, item, 3, euclideanDistance),
-        manhattan2: classify(data, item, 2, manhattanDistance),
-        manhattan3: classify(data, item, 3, manhattanDistance)
+        "euclidean & k=2": classify(data, item, 2, euclideanDistance),
+        "euclidean & k=3": classify(data, item, 3, euclideanDistance),
+        "manhattan & k=2": classify(data, item, 2, manhattanDistance),
+        "manhattan & k=3": classify(data, item, 3, manhattanDistance)
     };
 });
 
